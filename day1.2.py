@@ -1,19 +1,24 @@
-
-from sys import stdin
 import numpy as np
 
 sum = 0
 list = np.array([])
 solved = 0
-x=1
+
+
+# this is awful but I basically open the file and read it in 
+# line by line, and if we reach the end and the solutino isn't found
+# I just close it and the reopen it and start over
+
+# clever approach would be to read it into an array and just iterate through 
 
 while(1):
     with open("day1.input","r") as f:
         data = f.readline()
         while data:
             sum = sum + int(data)
-            # print sum
 
+            # this apparently is not optimal, code runs
+            # increasingly slower the longer the list gets
             if sum in list:
                 print 'duplicate found',sum
                 solved = 1
@@ -23,9 +28,6 @@ while(1):
             data = f.readline()
     f.close()
 
-    print "end of round ", x
-    x=x+1
-    print len(list)
     if solved == 1:
         break
 
