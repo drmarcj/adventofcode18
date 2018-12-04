@@ -57,11 +57,21 @@ print "most sleep was", max(guard[winner].times), "times at", guard[winner].time
 print "minutes after midnight"
 
 
-#for i in range(0,len(guard)):
-#    print guard[i].name
-#    for j in range(0,40):
-#        print guard[i].times[j],
-#    print
+### part 2, this should be much easier
+
+biggest = 0
+biggestindex = 0
+winner = 0
+
+for i in range(0,len(guard)):
+    for j in range(0,len(guard[i].times)):
+        if guard[i].times[j] > biggest:
+            biggest = guard[i].times[j]
+            biggestindex=j
+            winner = i
+
+print "biggest napper at time ",biggestindex, " was guard ",guard[winner].name, \
+    "for",biggest,"minutes"
 
 
     
